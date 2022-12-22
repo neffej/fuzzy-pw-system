@@ -25,12 +25,10 @@ function generatePassword(){
       }else if(Number(pwLength) <= 8){
         return;
       }
-      console.log(pwLength.length);
+      console.log(Number(pwLength));
 
   // If user pwLength is not within the defined range, page returns a blank
-  }else {
-    return characters;
-  }
+    }
 
   // If pwLength IS within defined range:
   // User confirms whether they want lowercase characters in their password

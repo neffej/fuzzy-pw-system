@@ -106,6 +106,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword){
-  event.preventDefault();
-};
+generateBtn.addEventListener("click", writePassword)

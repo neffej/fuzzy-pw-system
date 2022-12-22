@@ -9,8 +9,10 @@ const sChar = '!@#$%^&*-_=+';
 
 function generatePassword(){
   console.log("hey you clicked the button")
+
   // Clear characters from cache
   let characters = "";
+  let pword = "";
 
   // User sets password length
   let pwLength = prompt("Choose a password length between 8 and 128 characters");
@@ -66,15 +68,18 @@ function generatePassword(){
     
     // If user has not selected any character types, page will return a blank.
     // I originally made this to loop back to generatePassword(), but it wouldn't write the password onto the page if the user did it correctly on the second go round. What gives??
-    else if(characters.length === 0){
-      return characters;
-        };
+    // else if(characters.length === 0){
+      
+    //   preventDefault();
+    //   pword += "You must select one character type to generate a password. Click button to try again :)";
+    //     }
+        console.log(characters.length);
   
   // Log character string for troubleshooting
   console.log (characters);
 
   // Write password
-  let pword = "";
+
     for (var i=0; i < Number(pwLength); i++) {
       pword += characters.charAt(
         Math.floor(Math.random() * characters.length)
@@ -89,6 +94,8 @@ function generatePassword(){
 }
 
 
+
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -99,4 +106,6 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword){
+  event.preventDefault();
+};

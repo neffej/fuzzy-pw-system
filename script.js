@@ -21,9 +21,9 @@ function generatePassword(){
   if (pwLength != null) {
       Number(pwLength);
       if (Number(pwLength) >=128){
-        generatePassword();
+        return;
       }else if(Number(pwLength) <= 8){
-        generatePassword();
+        return;
       }
       console.log(pwLength.length);
 

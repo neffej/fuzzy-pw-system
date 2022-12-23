@@ -21,14 +21,14 @@ function generatePassword(){
   if (pwLength != null) {
       Number(pwLength);
       if (Number(pwLength) >=128){
-        return;
+        return "Please choose a password length between 8 and 128 characters";
       }else if(Number(pwLength) <= 8){
-        return;
+        return "Please choose a password length between 8 and 128 characters";
       }
       console.log(Number(pwLength));
 
   // If user pwLength is not within the defined range, page returns a blank
-    }
+    
 
   // If pwLength IS within defined range:
   // User confirms whether they want lowercase characters in their password
@@ -63,7 +63,10 @@ function generatePassword(){
     if (specChar === true){
       characters += sChar;
     }
-    
+    if (characters.length <1){
+      return "Please choose a character type for your password";
+    }
+  }
     // If user has not selected any character types, page will return a blank.
     // I originally made this to loop back to generatePassword(), but it wouldn't write the password onto the page if the user did it correctly on the second go round. What gives??
     // else if(characters.length === 0){

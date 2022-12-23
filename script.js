@@ -16,18 +16,22 @@ function generatePassword(){
 
   // User sets password length
   let pwLength = prompt("Choose a password length between 8 and 128 characters");
+ 
+  if (pwLength != null){
+    Number(pwLength);
 
-  // Logic to ensure proper password length
-  if (pwLength != null) {
-      Number(pwLength);
-      if (Number(pwLength) >=128){
+  //Check if user input is a number 
+    if (isNaN(pwLength) === true){
+   alert("Password length input must be a number");
+   return "Please try again";
+   }else{  
+
+  // If input is a number, use logic to validate input is the proper length:
+  if (Number(pwLength)<= 8 || Number(pwLength)>=128) {
         return "Please choose a password length between 8 and 128 characters";
-      }else if(Number(pwLength) <= 8){
-        return "Please choose a password length between 8 and 128 characters";
-      }
+      }else {
       console.log(Number(pwLength));
-
-  // If user pwLength is not within the defined range, page returns a blank
+  // If user pwLength is not within the defined range, user is prompted to try agian
     
 
   // If pwLength IS within defined range:
@@ -63,24 +67,19 @@ function generatePassword(){
     if (specChar === true){
       characters += sChar;
     }
+
+  //If no character types were selected: 
     if (characters.length <1){
       return "Please choose a character type for your password";
     }
   }
-    // If user has not selected any character types, page will return a blank.
-    // I originally made this to loop back to generatePassword(), but it wouldn't write the password onto the page if the user did it correctly on the second go round. What gives??
-    // else if(characters.length === 0){
-      
-    //   preventDefault();
-    //   pword += "You must select one character type to generate a password. Click button to try again :)";
-    //     }
-        console.log(characters.length);
+
+  console.log(characters.length);
   
   // Log character string for troubleshooting
   console.log (characters);
 
   // Write password
-
     for (var i=0; i < Number(pwLength); i++) {
       pword += characters.charAt(
         Math.floor(Math.random() * characters.length)
@@ -92,10 +91,7 @@ function generatePassword(){
 
   // Return pword to user 
   return pword;
-}
-
-
-
+}}}
 
 // Write password to the #password input
 function writePassword() {
